@@ -11,10 +11,9 @@ class NetworkConfig {
     private fun getInterceptor() : OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
-        val okHttpClient = OkHttpClient.Builder()
+        return OkHttpClient.Builder()
             .addInterceptor(logging)
             .build()
-        return  okHttpClient
     }
     private fun getRetrofit() : Retrofit {
         return Retrofit.Builder()
@@ -23,5 +22,5 @@ class NetworkConfig {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    fun getService() = getRetrofit().create(Users::class.java)
+    fun getService() = getRetrofit().create(Users::class.java)!!
 }

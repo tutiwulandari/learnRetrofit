@@ -2,7 +2,7 @@ package com.example.learnretrofit.data
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class ResultUsers(
 
 	@field:SerializedName("website")
 	val website: String? = null,
